@@ -3,28 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Filtration System</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <form enctype="multipart/form-data" action="/upload" method="post">
-      <input type="file" id="uploader" name="uploaded" />
+      <input type="file" id="uploader" name="uploaded" /><br />
       <input type="submit" id="submit" disabled />
   </form>
   <script>
       var uploader = document.getElementById("uploader");
-      console.log(uploader);
+      var submit = document.getElementById("submit");
+      // accounts for user hitting back button
+      uploader.files.length > 0 ? submit.disabled = false : submit.disabled = true;
+
       uploader.addEventListener("change", function() {
-        console.log(this.files);
         if(this.files) {
             if(this.files[0].type == "image/gif") {
-                document.getElementById("submit").disabled = false;
-                console.log("yay");
+                submit.disabled = false;
             } else {
-                document.getElementById("submit").disabled = true;
+                submit.disabled = true;
             }
         } else {
-            document.getElementById("submit").disabled = true;
+            submit.disabled = true;
         }
       }, false);
+
+      // submit.addEventListener("click", function() {
+      //   //prevent click spam
+      //   submit.disabled = true;
+      // });
 
   </script>
 </body>

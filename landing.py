@@ -12,9 +12,17 @@ def index():
 @app.route("/upload", methods=['GET', 'POST'])
 def img_upload():
     if request.method == 'POST':
+        print("got here")
         gif = request.files["uploaded"]
+        print("gif")
         extract_gif.extract_gif(gif)
+        print("extracted")
         process.process_gif()
-        result = stitch.stitch()
-        return send_file(result, 'image/gif')
+        print("process done")
+        output = stitch.stitch()
+        # return send_file(result, 'image/gif')
+        print("output done")
+        print(gif)
+        print(output)
+        return render_template('test.html', output=output, input=gif)
 

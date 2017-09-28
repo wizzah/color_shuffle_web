@@ -11,5 +11,6 @@ directory += "/output"
 
 input_filename = "example_input.gif"
 output_filename = "example_output.gif"
+output_folder = "output"
 # got stumped on something, but tried to make a picture anyway
 attempted_output_filename = "itried.gif"
