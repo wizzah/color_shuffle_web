@@ -3,7 +3,7 @@ import os
 import math
 import PIL
 from PIL import Image
-import settings
+from landing import app
 
 # images = []
 
@@ -18,17 +18,21 @@ def brightness(r, g, b):
 def process_gif():
     sort_names = []
 
-    for filename in os.listdir(settings.directory):
-        if filename.endswith(settings.input_filetype):
+    if not os.path.exists(app.config["PROCESSING_DIRECTORY"]):
+        print("No processing folder")
+        os.makedirs(app.config["PROCESSING_DIRECTORY"])
+
+    for filename in os.listdir(app.config["PROCESSING_DIRECTORY"]):
+        if filename.endswith(app.config["INPUT_FILETYPE"]):
             # basically makes a list of the filenames without the filetype at the end-
             # so, a list of numbers
-            sort_names.append(int(filename[:-(len(settings.input_filetype))]))
+            sort_names.append(int(filename[:-(len(app.config["INPUT_FILETYPE"]))]))
 
     # pixel_list = []
     sort_names = sorted(sort_names)
     for file in sort_names:
 
-        imgobj = Image.open(settings.directory+"/"+str(file)+settings.input_filetype)
+        imgobj = Image.open(app.config["PROCESSING_DIRECTORY"]+"/"+str(file)+app.config["INPUT_FILETYPE"])
 
         pixels = imgobj.convert('RGBA')
         data = list(pixels.getdata())
@@ -76,6 +80,6 @@ def process_gif():
         try:
             im = Image.new(pixels.mode, pixels.size)
             im.putdata(new_img)
-            im.save(settings.directory+"/"+str(file)+settings.input_filetype)
+            im.save(app.config["PROCESSING_DIRECTORY"]+"/"+str(file)+app.config["INPUT_FILETYPE"])
         except Exception as e:
             print e

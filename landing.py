@@ -1,9 +1,15 @@
 from flask import Flask, request, render_template, send_file
 from werkzeug.utils import secure_filename
+import os
+import config
+
+app = Flask(__name__)
+app.config.from_object('config.DevelopmentConfig')
+
 import extract_gif
 import process
 import stitch
-app = Flask(__name__)
+import pdb
 
 @app.route("/", methods=['GET'])
 def index():
@@ -12,17 +18,11 @@ def index():
 @app.route("/upload", methods=['GET', 'POST'])
 def img_upload():
     if request.method == 'POST':
-        print("got here")
         gif = request.files["uploaded"]
-        print("gif")
+        app.config['INPUT_FILENAME'] = gif.filename
+        app.config['OUTPUT_FILENAME'] = "output_"+gif.filename
         extract_gif.extract_gif(gif)
-        print("extracted")
         process.process_gif()
-        print("process done")
         output = stitch.stitch()
-        # return send_file(result, 'image/gif')
-        print("output done")
-        print(gif)
-        print(output)
-        return render_template('test.html', output=output, input=gif)
+        return render_template('test.html', output=output, input=gif.filename)
 
