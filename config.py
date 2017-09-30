@@ -13,7 +13,7 @@ class DevelopmentConfig(Config):
     DIRECTORY = os.getcwd()+"/static"
     PROCESSING_DIRECTORY = os.getcwd()+"/static/processing"
     OUTPUT_DIRECTORY = os.getcwd()+"/static/output/"
-    INPUT_FILETYPE=".gif"
+    INPUT_FILETYPE = ".gif"
     ATTEMPTED_OUTPUT_FILENAME = "itried.gif"
 
 class TestingConfig(Config):

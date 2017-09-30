@@ -1,3 +1,5 @@
 *.DS_Store
 *.pyc
 venv/
+static/output/
+static/processing/

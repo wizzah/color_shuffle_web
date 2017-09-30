@@ -17,7 +17,7 @@ def stitch():
             try:
                 images.append(imageio.imread(app.config["PROCESSING_DIRECTORY"]+"/"+str(file)+app.config["INPUT_FILETYPE"]))
             except: 
-                imageio.mimsave(app.config["ATTEMPTED_OUTPUT_FILENAME"], images)
+                imageio.mimsave(app.config["OUTPUT_DIRECTORY"] + app.config["ATTEMPTED_OUTPUT_FILENAME"], images)
 
     imageio.mimsave(app.config["OUTPUT_DIRECTORY"] + app.config["OUTPUT_FILENAME"], images)
     return app.config["OUTPUT_FILENAME"]

@@ -18,10 +18,6 @@ def brightness(r, g, b):
 def process_gif():
     sort_names = []
 
-    if not os.path.exists(app.config["PROCESSING_DIRECTORY"]):
-        print("No processing folder")
-        os.makedirs(app.config["PROCESSING_DIRECTORY"])
-
     for filename in os.listdir(app.config["PROCESSING_DIRECTORY"]):
         if filename.endswith(app.config["INPUT_FILETYPE"]):
             # basically makes a list of the filenames without the filetype at the end-

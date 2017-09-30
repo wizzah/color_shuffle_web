@@ -21,6 +21,17 @@ def img_upload():
         gif = request.files["uploaded"]
         app.config['INPUT_FILENAME'] = gif.filename
         app.config['OUTPUT_FILENAME'] = "output_"+gif.filename
+
+        # create output and processing if they don't exist
+        if not os.path.exists(app.config["OUTPUT_DIRECTORY"]):
+            os.makedirs(app.config["OUTPUT_DIRECTORY"])
+
+        if not os.path.exists(app.config["PROCESSING_DIRECTORY"]):
+            os.makedirs(app.config["PROCESSING_DIRECTORY"])
+
+        # save input gif to the output folder so we can show the user
+        gif.save(app.config["OUTPUT_DIRECTORY"] + "/" + gif.filename)
+
         extract_gif.extract_gif(gif)
         process.process_gif()
         output = stitch.stitch()
