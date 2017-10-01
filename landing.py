@@ -37,6 +37,9 @@ def img_upload():
         output = stitch.stitch()
         return render_template('result.html', output=output, input=gif.filename)
 
+@app.route("/test")
+def test():
+    return "Test!"
 
 if __name__ == '__main__':
   app.run()
