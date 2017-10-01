@@ -5,6 +5,6 @@ Jinja2==2.9.6
 MarkupSafe==1.0
 numpy==1.12.1
 olefile==0.44
-Pillow==4.1.0
+Pillow>=4.1.0
 virtualenv==15.1.0
 Werkzeug==0.12.2
