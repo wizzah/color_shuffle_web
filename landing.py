@@ -35,5 +35,5 @@ def img_upload():
         extract_gif.extract_gif(gif)
         process.process_gif()
         output = stitch.stitch()
-        return render_template('test.html', output=output, input=gif.filename)
+        return render_template('result.html', output=output, input=gif.filename)
 

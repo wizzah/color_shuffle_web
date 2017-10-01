@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Filtration Station</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body id="result">
+    <h1>Filtration Station</h1>
+    <div class="center">
+        <img src="static/output/{{ input }}" alt="Input gif" />
+        <img src="static/output/{{ output }}" alt="Output gif" />
+        <p><a href="/" class="submit">let's make more!</a></p>
+    </div>
+</body>
+</html>

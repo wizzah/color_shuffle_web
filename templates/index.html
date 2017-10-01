@@ -2,14 +2,15 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Filtration System</title>
+    <title>Filtration Station</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <form enctype="multipart/form-data" action="/upload" method="post">
+    <h1>Filtration Station</h1>
+    <form enctype="multipart/form-data" action="/upload" method="post" id="form">
       <input type="file" id="uploader" name="uploaded" /><br />
-      <input type="submit" id="submit" disabled />
+      <input type="submit" class="submit" value="filter me!" disabled />
   </form>
-<script type="text/javascript" src="{{ url_for('static', filename='js/upload.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/upload.js') }}"></script>
 </body>
 </html>
