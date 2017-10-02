@@ -24,7 +24,6 @@ def process_gif():
             # so, a list of numbers
             sort_names.append(int(filename[:-(len(app.config["INPUT_FILETYPE"]))]))
 
-    # pixel_list = []
     sort_names = sorted(sort_names)
     for file in sort_names:
 
