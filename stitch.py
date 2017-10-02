@@ -1,6 +1,6 @@
 import imageio
 import os
-from landing import app
+from app import app
 
 def stitch():
 

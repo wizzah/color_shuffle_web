@@ -1,6 +1,6 @@
 import os
 from PIL import Image
-from landing import app
+from app import app
 
 def extract_gif(gif):
     frame = Image.open(gif)

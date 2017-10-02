@@ -3,7 +3,7 @@ import os
 import math
 import PIL
 from PIL import Image
-from landing import app
+from app import app
 
 # images = []
 
