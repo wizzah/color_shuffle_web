@@ -78,4 +78,4 @@ def process_gif():
             im.putdata(new_img)
             im.save(app.config["PROCESSING_DIRECTORY"]+"/"+str(file)+app.config["INPUT_FILETYPE"])
         except Exception as e:
-            print e
+            print(e)
